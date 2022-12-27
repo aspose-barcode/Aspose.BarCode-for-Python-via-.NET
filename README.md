@@ -1,0 +1,1 @@
+# Aspose.BarCode-for-Python-via-.NET
