@@ -18,7 +18,7 @@ class BarcodeParametersExample:
         generator.code_text = newCodeText
         print("codeText: " + str(generator.code_text))
         barcodeParameters.bar_color = barColor
-        print("barColor: " + str(barcodeParameters.bar_color))
+        print("barColor: " + hex(barcodeParameters.bar_color.to_argb()+2**32))
         basegenerationParameters.auto_size_mode = autoSizeMode
         print("autoSizeMode: " + str(basegenerationParameters.auto_size_mode))
         basegenerationParameters.image_height.millimeters = barCodeHeight
