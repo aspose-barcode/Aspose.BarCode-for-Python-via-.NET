@@ -43,7 +43,7 @@ class BarcodeGeneratorExamples():
         print("---\nbackColorExample")
         ea.set_license()
         back_color = Color(0xFF, 0x00, 0x00)
-        generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE_39_STANDARD, '01234567')
+        generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE39, '01234567')
         params = generator.parameters
         back_color_default = generator.parameters.back_color
         print("Default back color: " + hex(back_color_default.to_argb()+2**32))
@@ -57,7 +57,7 @@ class BarcodeGeneratorExamples():
     def barColorExample(self):
         print("---\nbarColorExample")
         bar_color = Color(0x00, 0x00, 0xFF)
-        generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE_39_STANDARD, '01234567')
+        generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE39, '01234567')
         bar_color_default = generator.parameters.barcode.bar_color
         print("Default bar color: " + hex(bar_color_default.to_argb()+2**32))
         generator.parameters.barcode.bar_color = bar_color

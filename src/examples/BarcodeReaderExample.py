@@ -16,10 +16,8 @@ class BarcodeReaderExamples():
         print("\n----\nsetQualitySettingsExample1")
         ta.set_license()
         full_path = ta.test_data_root + "code128-example-2.png"
-        reader = barcoderecognition.BarCodeReader(full_path)
+        reader = barcoderecognition.BarCodeReader(full_path, barcoderecognition.DecodeType.CODE128)
         reader.quality_settings = barcoderecognition.QualitySettings.high_performance
-        reader.quality_settings.allow_median_smoothing = True
-        reader.quality_settings.median_smoothing_window_size = 5
         recognized_results = reader.read_bar_codes()
         for x in recognized_results:
             print(x.code_text)
@@ -29,7 +27,7 @@ class BarcodeReaderExamples():
         print("\n----\nsetQualitySettingsExample2")
         ta.set_license()
         full_path = ta.test_data_root + "datamatrix-example-1.png"
-        reader = barcoderecognition.BarCodeReader(full_path)
+        reader = barcoderecognition.BarCodeReader(full_path, barcoderecognition.DecodeType.DATA_MATRIX)
         reader.quality_settings = barcoderecognition.QualitySettings.normal_quality
         recognized_results = reader.read_bar_codes()
         for x in recognized_results:
