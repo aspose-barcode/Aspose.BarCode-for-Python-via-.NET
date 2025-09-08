@@ -9,7 +9,7 @@ test_data_root = os.path.join(_FILE_DIR, "..", "resources", "input") + os.sep
 
 
 def set_license():
-    if (os.path.exists(pythonLicensePath)):
+    if os.path.exists(pythonLicensePath):
         try:
             license = aspose.barcode.License()
             license.set_license(pythonLicensePath)

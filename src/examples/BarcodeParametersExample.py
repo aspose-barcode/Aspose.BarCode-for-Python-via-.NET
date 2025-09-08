@@ -2,8 +2,9 @@ from aspose.barcode import generation
 from aspose.pydrawing import Color
 import ExampleAssist as ea
 
+
 class BarcodeParametersExample:
- def setParametersExample(self):
+    def setParametersExample(self):
         print("---\nsetParametersExample")
         ea.set_license()
         newCodeText = "UPDATED_NEW"
@@ -18,7 +19,7 @@ class BarcodeParametersExample:
         generator.code_text = newCodeText
         print("codeText: " + str(generator.code_text))
         barcodeParameters.bar_color = barColor
-        print("barColor: " + hex(barcodeParameters.bar_color.to_argb()+2**32))
+        print("barColor: " + hex(barcodeParameters.bar_color.to_argb() + 2**32))
         basegenerationParameters.auto_size_mode = autoSizeMode
         print("autoSizeMode: " + str(basegenerationParameters.auto_size_mode))
         basegenerationParameters.image_height.millimeters = barCodeHeight
@@ -27,11 +28,10 @@ class BarcodeParametersExample:
         print("barCodeWidth: " + str(basegenerationParameters.image_width.millimeters))
         barcodeParameters.bar_height.millimeters = barHeight
         print("barHeight: " + str(barcodeParameters.bar_height.millimeters))
-        path_to_save =  ea.results_root + "barcodeParametersExample.png"
+        path_to_save = ea.results_root + "barcodeParametersExample.png"
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
 
 
 barcodeParametersExample = BarcodeParametersExample()
 barcodeParametersExample.setParametersExample()
-

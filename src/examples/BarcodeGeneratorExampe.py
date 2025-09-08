@@ -2,7 +2,8 @@ from aspose.barcode import generation
 from aspose.pydrawing import Color, FontStyle
 import ExampleAssist as ea
 
-class BarcodeGeneratorExamples():
+
+class BarcodeGeneratorExamples:
     def generateBarcodeImageExample1(self):
         print("---\ngenerateBarcodeImageExample1")
         ea.set_license()
@@ -43,13 +44,13 @@ class BarcodeGeneratorExamples():
         print("---\nbackColorExample")
         ea.set_license()
         back_color = Color(0xFF, 0x00, 0x00)
-        generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE39, '01234567')
+        generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE39, "01234567")
         params = generator.parameters
         back_color_default = generator.parameters.back_color
-        print("Default back color: " + hex(back_color_default.to_argb()+2**32))
+        print("Default back color: " + hex(back_color_default.to_argb() + 2**32))
         params.back_color = back_color
         back_color_actual = generator.parameters.back_color
-        print('new back color: ' + hex(back_color_actual.to_argb()+2**32))
+        print("new back color: " + hex(back_color_actual.to_argb() + 2**32))
         path_to_save = ea.results_root + "backColorExample.png"
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
@@ -57,12 +58,12 @@ class BarcodeGeneratorExamples():
     def barColorExample(self):
         print("---\nbarColorExample")
         bar_color = Color(0x00, 0x00, 0xFF)
-        generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE39, '01234567')
+        generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE39, "01234567")
         bar_color_default = generator.parameters.barcode.bar_color
-        print("Default bar color: " + hex(bar_color_default.to_argb()+2**32))
+        print("Default bar color: " + hex(bar_color_default.to_argb() + 2**32))
         generator.parameters.barcode.bar_color = bar_color
-        bar_color= generator.parameters.barcode.bar_color
-        print('new bar color: ' + hex(bar_color.to_argb()+2**32))
+        bar_color = generator.parameters.barcode.bar_color
+        print("new bar color: " + hex(bar_color.to_argb() + 2**32))
         path_to_save = ea.results_root + "barColorExample.png"
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
@@ -70,7 +71,7 @@ class BarcodeGeneratorExamples():
     def fontExample(self):
         print("---\nfontExample")
         generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE128)
-        generator.parameters.caption_above.text ="CAPTION ABOVE"
+        generator.parameters.caption_above.text = "CAPTION ABOVE"
         generator.parameters.caption_above.visible = True
         generator.parameters.caption_above.font.style = FontStyle.ITALIC
         generator.parameters.caption_above.font.size.point = 5
@@ -82,6 +83,7 @@ class BarcodeGeneratorExamples():
         path_to_save = ea.results_root + "fontExample.bmp"
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
+
 
 barcodeGeneratorExamples = BarcodeGeneratorExamples()
 barcodeGeneratorExamples.generateBarcodeImageExample1()

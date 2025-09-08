@@ -46,7 +46,9 @@ def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> None:
 
                 for result in reader.read_bar_codes():
                     print(
-                        f"Page {page_index}: " f"Barcode type: {result.code_type_name}, " f"data: '{result.code_text}'"
+                        f"{os.path.basename(pdf_path)} page {page_index}: "
+                        f"Barcode type: {result.code_type_name}, "
+                        f"data: '{result.code_text}'"
                     )
 
             finally:
