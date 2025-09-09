@@ -1,9 +1,10 @@
 import os
 import tempfile
 
+import ExampleAssist as ea
+
 import aspose.pdf as apdf
 from aspose.barcode import barcoderecognition as barcode_recognition
-import ExampleAssist as ea
 
 
 def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> None:

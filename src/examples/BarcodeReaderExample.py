@@ -1,5 +1,6 @@
-from aspose.barcode import barcoderecognition
 import ExampleAssist as ea
+
+from aspose.barcode import barcoderecognition
 
 
 class BarcodeReaderExamples:

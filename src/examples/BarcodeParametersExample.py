@@ -1,6 +1,7 @@
+import ExampleAssist as ea
+
 from aspose.barcode import generation
 from aspose.pydrawing import Color
-import ExampleAssist as ea
 
 
 class BarcodeParametersExample:

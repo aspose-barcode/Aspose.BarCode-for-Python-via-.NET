@@ -1,4 +1,5 @@
 import os
+
 import aspose.barcode
 
 _FILE_DIR = os.path.dirname(__file__)
