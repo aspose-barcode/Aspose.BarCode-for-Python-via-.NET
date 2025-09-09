@@ -1,10 +1,11 @@
+import io
 import os
-import tempfile
 
 import ExampleAssist as ea
 
 import aspose.pdf as apdf
 from aspose.barcode import barcoderecognition as barcode_recognition
+from aspose.pydrawing.imaging import ImageFormat
 
 
 def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> None:
@@ -21,45 +22,29 @@ def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> None:
 
         # Process all images on the page
         for placement in absorber.image_placements:
-            # Save extracted image to a temporary PNG file
-            tmp_path = None
-            try:
-                with tempfile.NamedTemporaryFile(
-                    prefix=f"page{page_index}_img_",
-                    suffix=".png",
-                    delete=False,
-                ) as tmp:
-                    tmp_path = tmp.name
-                    # Save the image into this file stream as PNG
-                    placement.save(tmp.file)
+            # Save extracted image to an in-memory PNG stream
+            buf = io.BytesIO()
+            placement.save(buf, ImageFormat.png)
+            buf.seek(0)
 
-                # Recognize (restrict to common 2D types; or use DecodeType.ALL_SUPPORTED_TYPES)
-                reader = barcode_recognition.BarCodeReader(
-                    tmp_path,
-                    barcode_recognition.MultyDecodeType(
-                        [
-                            barcode_recognition.DecodeType.PDF417,
-                            barcode_recognition.DecodeType.QR,
-                            barcode_recognition.DecodeType.DATA_MATRIX,
-                        ]
-                    ),
+            # Recognize barcodes (PDF417, QR, DataMatrix)
+            reader = barcode_recognition.BarCodeReader(
+                buf,
+                barcode_recognition.MultyDecodeType(
+                    [
+                        barcode_recognition.DecodeType.PDF417,
+                        barcode_recognition.DecodeType.QR,
+                        barcode_recognition.DecodeType.DATA_MATRIX,
+                    ]
+                ),
+            )
+
+            for result in reader.read_bar_codes():
+                print(
+                    f"{os.path.basename(pdf_path)} page {page_index}: "
+                    f"Barcode type: {result.code_type_name}, "
+                    f"data: '{result.code_text}'"
                 )
-
-                for result in reader.read_bar_codes():
-                    print(
-                        f"{os.path.basename(pdf_path)} page {page_index}: "
-                        f"Barcode type: {result.code_type_name}, "
-                        f"data: '{result.code_text}'"
-                    )
-
-            finally:
-                # Ensure temp file is removed
-                if tmp_path and os.path.exists(tmp_path):
-                    try:
-                        os.remove(tmp_path)
-                    except OSError:
-                        # If cleanup fails, just continue
-                        pass
 
 
 def run_example():
