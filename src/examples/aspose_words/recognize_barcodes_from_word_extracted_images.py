@@ -1,7 +1,7 @@
 import io
 import os
 
-import ExampleAssist as ea
+import example_assist as ea
 
 import aspose.words as aw
 from aspose.barcode import barcoderecognition as barcode_recognition
@@ -47,7 +47,6 @@ def recognize_barcodes_from_word_extracted_images(word_path: str) -> list[ea.Bar
     return results
 
 
-def run_example():
-    word_file = os.path.join(ea.test_data_root, "WordDocWithBarcodes.docx")
+def run_example(word_file):
     assert os.path.isfile(word_file), f"Word file '{word_file}' not found"
     return recognize_barcodes_from_word_extracted_images(word_file)

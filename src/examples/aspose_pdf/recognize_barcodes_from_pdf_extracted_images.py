@@ -1,7 +1,7 @@
 import io
 import os
 
-import ExampleAssist as ea
+import example_assist as ea
 
 import aspose.pdf as apdf
 from aspose.barcode import barcoderecognition as barcode_recognition
@@ -49,7 +49,6 @@ def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> list[ea.Barco
     return results
 
 
-def run_example():
-    pdf_file = os.path.join(ea.test_data_root, "PDFDocumentWithPdf417.pdf")
+def run_example(pdf_file: str):
     assert os.path.isfile(pdf_file), f"PDF file '{pdf_file}' not found"
     return recognize_barcodes_from_pdf_extracted_images(pdf_file)

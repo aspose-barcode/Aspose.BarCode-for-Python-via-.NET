@@ -1,11 +1,11 @@
-import ExampleAssist as ea
+import example_assist as ea
 
 from aspose.barcode import generation
 from aspose.pydrawing import Color, FontStyle
 
 
 class BarcodeGeneratorExamples:
-    def generateBarcodeImageExample1(self):
+    def generate_barcode_image_example1(self):
         print("---\ngenerateBarcodeImageExample1")
         ea.set_license()
         encode_type = generation.EncodeTypes.CODE128
@@ -15,7 +15,7 @@ class BarcodeGeneratorExamples:
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
 
-    def generateBarcodeImageExample2(self):
+    def generate_barcode_image_example2(self):
         print("---\ngenerateBarcodeImageExample2")
         ea.set_license()
         generator = generation.BarcodeGenerator(generation.EncodeTypes.CODABAR, "123456789")
@@ -23,7 +23,7 @@ class BarcodeGeneratorExamples:
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
 
-    def generateBarcodeImageExample3(self):
+    def generate_barcode_image_example3(self):
         print("---\ngenerateBarcodeImageExample3")
         ea.set_license()
         generator = generation.BarcodeGenerator(generation.EncodeTypes.DATA_MATRIX, "123456789")
@@ -31,7 +31,7 @@ class BarcodeGeneratorExamples:
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
 
-    def setBarcodeTypeExample(self):
+    def set_barcode_type_example(self):
         print("---\nsetBarcodeTypeExample")
         ea.set_license()
         generator = generation.BarcodeGenerator(generation.EncodeTypes.DATA_MATRIX, "123456789")
@@ -41,7 +41,7 @@ class BarcodeGeneratorExamples:
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
 
-    def backColorExample(self):
+    def back_color_example(self):
         print("---\nbackColorExample")
         ea.set_license()
         back_color = Color(0xFF, 0x00, 0x00)
@@ -56,7 +56,7 @@ class BarcodeGeneratorExamples:
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
 
-    def barColorExample(self):
+    def bar_color_example(self):
         print("---\nbarColorExample")
         bar_color = Color(0x00, 0x00, 0xFF)
         generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE39, "01234567")
@@ -69,7 +69,7 @@ class BarcodeGeneratorExamples:
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
         print("Image was saved to " + path_to_save)
 
-    def fontExample(self):
+    def font_example(self):
         print("---\nfontExample")
         generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE128)
         generator.parameters.caption_above.text = "CAPTION ABOVE"
@@ -86,11 +86,11 @@ class BarcodeGeneratorExamples:
         print("Image was saved to " + path_to_save)
 
 
-barcodeGeneratorExamples = BarcodeGeneratorExamples()
-barcodeGeneratorExamples.generateBarcodeImageExample1()
-barcodeGeneratorExamples.generateBarcodeImageExample2()
-barcodeGeneratorExamples.generateBarcodeImageExample3()
-barcodeGeneratorExamples.setBarcodeTypeExample()
-barcodeGeneratorExamples.backColorExample()
-barcodeGeneratorExamples.barColorExample()
-barcodeGeneratorExamples.fontExample()
+barcode_generator_examples = BarcodeGeneratorExamples()
+barcode_generator_examples.generate_barcode_image_example1()
+barcode_generator_examples.generate_barcode_image_example2()
+barcode_generator_examples.generate_barcode_image_example3()
+barcode_generator_examples.set_barcode_type_example()
+barcode_generator_examples.back_color_example()
+barcode_generator_examples.bar_color_example()
+barcode_generator_examples.font_example()

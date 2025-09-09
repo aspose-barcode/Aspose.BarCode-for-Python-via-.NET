@@ -1,10 +1,10 @@
-import ExampleAssist as ea
+import example_assist as ea
 
 from aspose.barcode import barcoderecognition
 
 
 class BarcodeReaderExamples:
-    def allSupportedTypesExample(self):
+    def all_supported_types_example(self):
         print("\n----\nallSupportedTypesExample")
         ea.set_license()
         full_path = ea.test_data_root + "code128-example-1.jpg"
@@ -14,7 +14,7 @@ class BarcodeReaderExamples:
             print(x.code_text)
             print(x.code_type_name)
 
-    def setQualitySettingsExample1(self):
+    def set_quality_settings_example1(self):
         print("\n----\nsetQualitySettingsExample1")
         ea.set_license()
         full_path = ea.test_data_root + "code128-example-2.png"
@@ -25,7 +25,7 @@ class BarcodeReaderExamples:
             print(x.code_text)
             print(x.code_type_name)
 
-    def setQualitySettingsExample2(self):
+    def set_quality_settings_example2(self):
         print("\n----\nsetQualitySettingsExample2")
         ea.set_license()
         full_path = ea.test_data_root + "datamatrix-example-1.png"
@@ -36,7 +36,7 @@ class BarcodeReaderExamples:
             print(x.code_text)
             print(x.code_type_name)
 
-    def setQualitySettingsExample3(self):
+    def set_quality_settings_example3(self):
         print("\n----\nsetQualitySettingsExample3")
         ea.set_license()
         full_path = ea.test_data_root + "barcodes-document-example-1.jpg"
@@ -47,7 +47,7 @@ class BarcodeReaderExamples:
             print(x.code_text)
             print(x.code_type_name)
 
-    def setQualitySettingsExample4(self):
+    def set_quality_settings_example4(self):
         print("setQualitySettingsExample4")
         ea.set_license()
         full_path = ea.test_data_root + "barcodes-document-example-2.jpg"
@@ -59,9 +59,9 @@ class BarcodeReaderExamples:
             print(x.code_type_name)
 
 
-barcodeReaderExamples = BarcodeReaderExamples()
-barcodeReaderExamples.allSupportedTypesExample()
-barcodeReaderExamples.setQualitySettingsExample1()
-barcodeReaderExamples.setQualitySettingsExample2()
-barcodeReaderExamples.setQualitySettingsExample3()
-barcodeReaderExamples.setQualitySettingsExample4()
+barcode_reader_examples = BarcodeReaderExamples()
+barcode_reader_examples.all_supported_types_example()
+barcode_reader_examples.set_quality_settings_example1()
+barcode_reader_examples.set_quality_settings_example2()
+barcode_reader_examples.set_quality_settings_example3()
+barcode_reader_examples.set_quality_settings_example4()
