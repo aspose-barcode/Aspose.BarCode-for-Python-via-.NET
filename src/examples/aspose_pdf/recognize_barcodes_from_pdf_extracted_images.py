@@ -1,3 +1,4 @@
+import inspect
 import io
 import os
 
@@ -9,7 +10,7 @@ from aspose.pydrawing.imaging import ImageFormat
 
 
 def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> list[ea.BarcodeResult]:
-    print("\nRecognizeBarcodesFromPDFDocumentFromExtractedImages:")
+    print(f"\n{inspect.currentframe().f_code.co_name}:")
 
     results = []
 

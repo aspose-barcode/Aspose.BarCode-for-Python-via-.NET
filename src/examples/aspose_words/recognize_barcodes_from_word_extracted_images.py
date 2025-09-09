@@ -1,3 +1,4 @@
+import inspect
 import io
 import os
 
@@ -8,7 +9,7 @@ from aspose.barcode import barcoderecognition as barcode_recognition
 
 
 def recognize_barcodes_from_word_extracted_images(word_path: str) -> list[ea.BarcodeResult]:
-    print("\nRecognizeBarcodesFromWordDocumentFromExtractedImages:")
+    print(f"\n{inspect.currentframe().f_code.co_name}:")
 
     results = []
 
