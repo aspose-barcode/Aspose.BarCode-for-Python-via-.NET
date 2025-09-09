@@ -8,8 +8,10 @@ from aspose.barcode import barcoderecognition as barcode_recognition
 from aspose.pydrawing.imaging import ImageFormat
 
 
-def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> None:
-    print("RecognizeBarcodesFromPDFDocumentFromExtractedImages:")
+def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> list[ea.BarcodeResult]:
+    print("\nRecognizeBarcodesFromPDFDocumentFromExtractedImages:")
+
+    results = []
 
     # Open PDF
     doc = apdf.Document(pdf_path)
@@ -40,14 +42,14 @@ def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> None:
             )
 
             for result in reader.read_bar_codes():
-                print(
-                    f"{os.path.basename(pdf_path)} page {page_index}: "
-                    f"Barcode type: {result.code_type_name}, "
-                    f"data: '{result.code_text}'"
-                )
+                barcode = ea.BarcodeResult(result.code_type_name, result.code_text)
+                results.append(barcode)
+                print(f"{os.path.basename(pdf_path)} page {page_index}:", barcode)
+
+    return results
 
 
 def run_example():
     pdf_file = os.path.join(ea.test_data_root, "PDFDocumentWithPdf417.pdf")
     assert os.path.isfile(pdf_file), f"PDF file '{pdf_file}' not found"
-    recognize_barcodes_from_pdf_extracted_images(pdf_file)
+    return recognize_barcodes_from_pdf_extracted_images(pdf_file)

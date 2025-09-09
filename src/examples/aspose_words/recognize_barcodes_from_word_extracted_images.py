@@ -7,8 +7,10 @@ import aspose.words as aw
 from aspose.barcode import barcoderecognition as barcode_recognition
 
 
-def recognize_barcodes_from_word_extracted_images(word_path: str) -> None:
-    print("RecognizeBarcodesFromWordDocumentFromExtractedImages:")
+def recognize_barcodes_from_word_extracted_images(word_path: str) -> list[ea.BarcodeResult]:
+    print("\nRecognizeBarcodesFromWordDocumentFromExtractedImages:")
+
+    results = []
 
     # Open Word document
     doc = aw.Document(word_path)
@@ -38,10 +40,14 @@ def recognize_barcodes_from_word_extracted_images(word_path: str) -> None:
         )
 
         for result in reader.read_bar_codes():
-            print(f"{os.path.basename(word_path)}: Barcode type: {result.code_type_name}, data: {result.code_text}")
+            barcode = ea.BarcodeResult(result.code_type_name, result.code_text)
+            results.append(barcode)
+            print(f"{os.path.basename(word_path)}:", barcode)
+
+    return results
 
 
 def run_example():
     word_file = os.path.join(ea.test_data_root, "WordDocWithBarcodes.docx")
     assert os.path.isfile(word_file), f"Word file '{word_file}' not found"
-    recognize_barcodes_from_word_extracted_images(word_file)
+    return recognize_barcodes_from_word_extracted_images(word_file)

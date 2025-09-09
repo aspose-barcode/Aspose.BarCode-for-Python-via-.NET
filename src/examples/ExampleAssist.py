@@ -1,3 +1,4 @@
+import collections
 import os
 
 import aspose.barcode
@@ -20,3 +21,11 @@ def set_license():
             print("License was not installed.")
     else:
         print("Path " + pythonLicensePath + " is not correct\nLicense was not installed.")
+
+
+# Base namedtuple for Barcode results
+class BarcodeResult(collections.namedtuple("BarcodeResult", ["type_name", "data"])):
+    __slots__ = ()  # no extra dict
+
+    def __str__(self):
+        return f"[{self.type_name}] => '{self.data}'"
