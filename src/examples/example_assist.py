@@ -14,8 +14,8 @@ def set_license():
     """Set the Aspose Barcode license if the license file exists."""
     if os.path.exists(python_license_path):
         try:
-            license = aspose.barcode.License()
-            license.set_license(python_license_path)
+            lic = aspose.barcode.License()
+            lic.set_license(python_license_path)
         except Exception as e:
             print("Exception occurred")
             print(e)

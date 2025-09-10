@@ -4,7 +4,7 @@ import os
 
 import example_assist as ea
 
-import aspose.words as aw
+import aspose.words as aspose_words
 from aspose.barcode import barcoderecognition as barcode_recognition
 
 
@@ -15,10 +15,10 @@ def recognize_barcodes_from_word_extracted_images(word_path: str) -> list[ea.Bar
     results = []
 
     # Open Word document
-    doc = aw.Document(word_path)
+    doc = aspose_words.Document(word_path)
 
     # Iterate through all Shape nodes
-    for shape in doc.get_child_nodes(aw.NodeType.SHAPE, True):
+    for shape in doc.get_child_nodes(aspose_words.NodeType.SHAPE, True):
         shape = shape.as_shape()  # cast to Shape
         # Skip shapes without images
         if not shape.has_image:
