@@ -11,6 +11,7 @@ test_data_root = os.path.join(_FILE_DIR, "..", "resources", "input") + os.sep
 
 
 def set_license():
+    """Set the Aspose Barcode license if the license file exists."""
     if os.path.exists(python_license_path):
         try:
             license = aspose.barcode.License()
@@ -25,7 +26,10 @@ def set_license():
 
 # Base namedtuple for Barcode results
 class BarcodeResult(collections.namedtuple("BarcodeResult", ["type_name", "data"])):
+    """Container for barcode result data and its type."""
+
     __slots__ = ()  # no extra dict
 
     def __str__(self):
+        """String representation of the BarcodeResult instance."""
         return f"[{self.type_name}] => '{self.data}'"

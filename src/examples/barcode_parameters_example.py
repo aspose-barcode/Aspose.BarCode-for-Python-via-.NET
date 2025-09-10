@@ -7,7 +7,14 @@ from aspose.pydrawing import Color
 
 
 class BarcodeParametersExample:
+    """Example demonstrating how to set barcode generation parameters."""
+
     def set_parameters_example(self):
+        """Set parameters for barcode generation using Aspose.Barcode.
+
+        This method demonstrates how to customize barcode generation parameters
+        such as code_text, bar_color, auto size mode, and image dimensions.
+        """
         print(f"\n----\n{inspect.currentframe().f_code.co_name}")
         ea.set_license()
         new_code_text = "UPDATED_NEW"

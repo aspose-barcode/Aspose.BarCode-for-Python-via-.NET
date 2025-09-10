@@ -9,6 +9,7 @@ from aspose.barcode import barcoderecognition as barcode_recognition
 
 
 def recognize_barcodes_from_word_extracted_images(word_path: str) -> list[ea.BarcodeResult]:
+    """Recognize barcodes from images extracted from a Word document."""
     print(f"\n{inspect.currentframe().f_code.co_name}:")
 
     results = []
@@ -49,5 +50,6 @@ def recognize_barcodes_from_word_extracted_images(word_path: str) -> list[ea.Bar
 
 
 def run_example(word_file):
+    """Run the recognize_barcodes_from_word_extracted_images example on a Word file."""
     assert os.path.isfile(word_file), f"Word file '{word_file}' not found"
     return recognize_barcodes_from_word_extracted_images(word_file)

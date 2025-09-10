@@ -10,6 +10,7 @@ from aspose.pydrawing.imaging import ImageFormat
 
 
 def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> list[ea.BarcodeResult]:
+    """Recognize barcodes from extracted images in a PDF document."""
     print(f"\n{inspect.currentframe().f_code.co_name}:")
 
     results = []
@@ -51,5 +52,6 @@ def recognize_barcodes_from_pdf_extracted_images(pdf_path: str) -> list[ea.Barco
 
 
 def run_example(pdf_file: str):
+    """Run the recognize_barcodes_from_pdf_extracted_images example on a PDF file."""
     assert os.path.isfile(pdf_file), f"PDF file '{pdf_file}' not found"
     return recognize_barcodes_from_pdf_extracted_images(pdf_file)
