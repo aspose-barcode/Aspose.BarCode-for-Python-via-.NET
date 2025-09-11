@@ -16,7 +16,6 @@ class BarcodeGeneratorExamples:
         and save it as a PNG image to the resources directory.
         """
         print(f"\n----\n{inspect.currentframe().f_code.co_name}")
-        ea.set_license()
         encode_type = generation.EncodeTypes.CODE128
         generator = generation.BarcodeGenerator(encode_type)
         generator.code_text = "123ABC"
@@ -31,7 +30,6 @@ class BarcodeGeneratorExamples:
         and saving to a PNG file.
         """
         print(f"\n----\n{inspect.currentframe().f_code.co_name}")
-        ea.set_license()
         generator = generation.BarcodeGenerator(generation.EncodeTypes.CODABAR, "123456789")
         path_to_save = ea.results_root + "codabar.png"
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
@@ -44,7 +42,6 @@ class BarcodeGeneratorExamples:
         and saving to a PNG file.
         """
         print(f"\n----\n{inspect.currentframe().f_code.co_name}")
-        ea.set_license()
         generator = generation.BarcodeGenerator(generation.EncodeTypes.DATA_MATRIX, "123456789")
         path_to_save = ea.results_root + "datamatrix.png"
         generator.save(path_to_save, generation.BarCodeImageFormat.PNG)
@@ -56,7 +53,6 @@ class BarcodeGeneratorExamples:
         Demonstrates changing barcode_type property of BarcodeGenerator and saving to file.
         """
         print(f"\n----\n{inspect.currentframe().f_code.co_name}")
-        ea.set_license()
         generator = generation.BarcodeGenerator(generation.EncodeTypes.DATA_MATRIX, "123456789")
         path_to_save = ea.results_root + "barcode_type.png"
         new_type = generation.EncodeTypes.CODABAR
@@ -70,7 +66,6 @@ class BarcodeGeneratorExamples:
         Demonstrates changing the back color of the barcode and saving to file.
         """
         print(f"\n----\n{inspect.currentframe().f_code.co_name}")
-        ea.set_license()
         back_color = Color(0xFF, 0x00, 0x00)
         generator = generation.BarcodeGenerator(generation.EncodeTypes.CODE39, "01234567")
         params = generator.parameters
@@ -121,11 +116,14 @@ class BarcodeGeneratorExamples:
         print("Image was saved to " + path_to_save)
 
 
-barcode_generator_examples = BarcodeGeneratorExamples()
-barcode_generator_examples.generate_barcode_image_example1()
-barcode_generator_examples.generate_barcode_image_example2()
-barcode_generator_examples.generate_barcode_image_example3()
-barcode_generator_examples.set_barcode_type_example()
-barcode_generator_examples.back_color_example()
-barcode_generator_examples.bar_color_example()
-barcode_generator_examples.font_example()
+def run_examples():
+    """Run all barcode generator examples."""
+    ea.set_license()
+    barcode_generator_examples = BarcodeGeneratorExamples()
+    barcode_generator_examples.generate_barcode_image_example1()
+    barcode_generator_examples.generate_barcode_image_example2()
+    barcode_generator_examples.generate_barcode_image_example3()
+    barcode_generator_examples.set_barcode_type_example()
+    barcode_generator_examples.back_color_example()
+    barcode_generator_examples.bar_color_example()
+    barcode_generator_examples.font_example()

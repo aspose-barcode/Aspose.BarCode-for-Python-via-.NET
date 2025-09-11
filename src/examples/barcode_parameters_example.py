@@ -16,7 +16,6 @@ class BarcodeParametersExample:
         such as code_text, bar_color, auto size mode, and image dimensions.
         """
         print(f"\n----\n{inspect.currentframe().f_code.co_name}")
-        ea.set_license()
         new_code_text = "UPDATED_NEW"
         bar_color = Color(0x0C, 0x39, 0x25)
         assert hasattr(generation, "AutoSizeMode")
@@ -56,5 +55,8 @@ class BarcodeParametersExample:
         print("Image was saved to " + path_to_save)
 
 
-barcode_parameters_example = BarcodeParametersExample()
-barcode_parameters_example.set_parameters_example()
+def run_example():
+    """Run barcode parameters example."""
+    ea.set_license()
+    barcode_parameters_example = BarcodeParametersExample()
+    barcode_parameters_example.set_parameters_example()
